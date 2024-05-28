@@ -1,0 +1,92 @@
+@use "../helpers/colors" as *;
+
+@use "../helpers/mixins" as *;
+
+.brand-section {
+    margin-block: 50px;
+    background-color: hsl($clr-gray);
+    padding-block: 50px;
+    .brand-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+        align-items: center;
+        gap: 30px;
+        place-items: center;
+        img {
+            // margin: 0 auto;
+            opacity: .5;
+            transition: .3s;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.footer {
+    margin-top: 50px;
+    .footer-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+        gap: 30px;
+        .foot-log {
+            p {
+                margin-block: 30px;
+            }
+            .brand {
+                display: flex;
+                align-items: center;
+                li {
+                    margin-right: 15px;
+                }
+            }
+        }
+        .foot-link, .foot-contact {
+            ul {
+                margin-top: 20px;
+                li {
+                    margin-block: 10px;
+                    
+                }
+            }
+        }
+        .foot-subscribe {
+            .update {
+                margin-block: 25px;
+                line-height: 1;
+            }
+            form {
+                position: relative;
+                .sub {
+                    background-image: linear-gradient(to right, hsl($clr-white), hsl($clr-gray));
+                    width: 100%;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 2rem;
+                    &:focus {
+                        outline: 1px solid gray;
+                    }
+                }
+                .btn-shape {
+                    position: absolute;
+                    font-size: 12px !important;
+                    padding: 7px 10px;
+                    right: .2rem;
+                    top: 4px;
+                    box-shadow: 0 0 15px 1px hsl($clr-red);
+                    &:hover {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+    .copy-right {
+        @include flex-b;
+        background-color: hsl($clr-black);
+        color: gray;
+        margin-top: 40px;
+
+        padding: 1rem 2rem;
+    }
+}

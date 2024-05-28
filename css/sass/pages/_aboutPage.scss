@@ -1,0 +1,25 @@
+.about-section {
+    margin-block: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(400px,1fr));
+    gap: 50px;
+    .about-content {
+        h1 {
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+        p {
+            line-height: 1.5;
+            margin-block: 25px;
+        }
+        .btn-shape {
+            position: relative;
+            bottom: -15px;
+        }
+    }
+    .about-img {
+        img {
+            box-shadow: 0 0 20px 0px gray;
+        }
+    }
+}

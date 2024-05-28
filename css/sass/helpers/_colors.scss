@@ -1,0 +1,34 @@
+// color
+$clr-gray: 0 0% 86.3%;
+$clr-gray-light: 0 0% 93.3%;
+$clr-red: 356.7 90.1% 56.5%;
+$clr-black: 0 0% 21.2%;
+$clr-yellow: 43.8 99% 58.8%;
+$clr-very-light-gray: 300 2.7% 92.7%;
+$clr-green: 144.3 64.4% 49.6%;
+$clr-blue: 214.5 100% 53.9%;
+$clr-white: 0 0% 100%;
+
+// text color classes
+// .text-red {color: hsl($clr-red);}
+.text-black {color: hsl($clr-black);}
+.text-blue {color: hsl($clr-blue);}
+.text-red {color: hsl($clr-red);}
+.text-gray {color: hsl($clr-gray);}
+.text-green {color: hsl($clr-green);}
+.text-gray-light {color: hsl($clr-gray-light);}
+.text-very-light-gray {color: hsl($clr-very-light-gray);}
+.text-white {color: hsl($clr-white);}
+.text-yellow {color: hsl($clr-yellow);}
+.clr-graay {color: gray;}
+
+// background color classes
+.bg-red {background-color: hsl($clr-red);}
+.bg-black {background-color: hsl($clr-black);}
+.bg-blue {background-color: hsl($clr-blue);}
+.bg-gray {background-color: hsl($clr-gray);}
+.bg-green {background-color: hsl($clr-green);}
+.bg-gray-light {background-color: hsl($clr-gray-light);}
+.bg-very-light-gray {background-color: hsl($clr-very-light-gray);}
+.bg-white {background-color: hsl($clr-white);}
+.bg-yellow {background-color: hsl($clr-yellow);}

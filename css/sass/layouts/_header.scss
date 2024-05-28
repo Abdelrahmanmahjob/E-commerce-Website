@@ -1,0 +1,260 @@
+// import mixins 
+@use "./sass/helpers/mixins" as *;
+
+@use "../helpers/colors" as *;
+
+@use "../helpers/fonts" as *;
+
+.header {
+    // position: fixed;
+    // background-color: hsl($clr-white);
+    padding-block: 25px;
+    .container {
+        @include flex-b;
+        .head-links {
+            @include flex-c;
+            .link ul {
+                @include flex-c;
+                margin-left: 40px;
+                position: relative;
+                & .closeNavLink {
+                    display: none;
+                }
+                @include Mobile {
+                    flex-direction: column;
+                    position: fixed;
+                    top: -100%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    background-color: rgba(black, 85%);
+                    border: 1px solid white;
+                    border-radius: 10px;
+                    // background-image: linear-gradient(45deg,hsl($clr-gray-light) , hsl($clr-black));
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    transition: 1.3s;
+                    z-index: 1000;
+                    &.showBar {
+                        top: 50%;
+                        left: 50%;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .closeNavLink {
+                        display: block;
+                        position: absolute;
+                        top: 14%;
+                        left: 50%;
+                        transform: translate(-50%,-14%);
+                        color: white;
+                        border: 2px solid white;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        @include flex-c;
+                        cursor: pointer;
+                        transition: .3s;
+                        &:hover{
+                            background-color: hsl($clr-red);
+                            color: hsl($clr-white);
+                        }
+                    }
+                }
+
+                li {
+                    @include Mobile {
+                        margin-block: 20px;
+                    }
+                    a {
+                        margin-right: 22px;
+                        color: #c9c8c8;
+                        transition: .3s;
+                        font-size: 18px;
+                        width: fit-content;
+                        -webkit-text-fill-color: hsl($clr-white);
+                        -webkit-text-stroke: .5px hsl($clr-black);
+                        font-weight: bold;
+                        position: relative;
+                        // background-color: yellow;
+                        &.active {
+                        -webkit-text-fill-color: hsl($clr-red);
+                        }
+                        &::before {
+                            content: attr(data-text);
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            -webkit-text-fill-color: hsl($clr-red);
+                            transition: .3s;
+                            width: 0;
+                            overflow: hidden;
+                        }
+                        &:hover::before {
+                            width: 100%;
+                        }
+                        @include Mobile {
+                            margin-right: 0;
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+        }
+        .head-login {
+            position: relative;
+            i {
+                margin-left: 20px;
+                cursor: pointer;
+                position: relative;
+                &.shop.shacke {
+                    animation: shacke .5s forwards;
+                }
+                @keyframes shacke {
+                    0% , 100% {
+                        transform: rotate(5deg);
+                        opacity: 1;
+                    }
+                    50% {
+                        opacity: .5;
+                        transform: rotate(-5deg);
+                    }
+                }
+                &.shop::after {
+                    content: attr(data-number);
+                    position: absolute;
+                    font: {
+                        size: 11px;
+                        weight: bold;
+                    }
+                    color: white;
+                    background-color: red;
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 50%;
+                    top: -17px;
+                    right: -12px;
+                    @include flex-c;
+                }
+                &.bar {
+                    display: none;
+                    @include Mobile {
+                        display: inline-block;
+                    }
+                }
+            }
+            .cart-box {
+                position: absolute;
+                background-color: hsl($clr-white);
+                color: hsl($clr-black);
+                border: 1px solid gray;
+                box-shadow: 5px 5px 25px 0px gray;
+                padding: 20px;
+                border-radius: 10px;
+                width: 350px;
+                // max-width: 100%;
+                right: 5px;
+                top: 80px;
+                opacity: 0;
+                transform: scale(0);
+                font-weight: bold;
+                transition: .5s;
+                z-index: 900;
+                
+                @include Mobile {
+                    right: 68px;
+                }
+                &.show-cart {
+                    top: 50px;
+                    @include Mobile {
+                        top: 48px;
+                    }
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                .shop-box {
+                    @include flex-b;
+                    i {
+                        transition: .3s;
+                        border-radius: 8px;
+                        &:hover {
+                            background-color: hsl($clr-red);
+                            color: hsl($clr-white);
+                            border: 1px solid hsl($clr-black);
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+                .cart-info {
+                    text-align: center;
+                    margin-top: 20px;
+                    color: rgba(black , .3);
+                    i {
+                        margin: 10px 0;
+                        font-size: 40px;
+                        cursor: default;
+                        rotate: -10deg;
+                    }
+                }
+                .cart-product {
+                    position: relative;
+                    margin-block: 22px;
+                    .best-product {
+                        display: flex;
+                        align-items: center;
+                        padding-bottom: 20px;
+                        margin-bottom: 20px;
+                        border-bottom: 1px solid hsl($clr-black);
+                        position: relative;
+                        .x-mark {
+                            position: absolute;
+                            right: 0.2rem;
+                            top: 2.2rem;
+                            cursor: pointer;
+                            color: gray;
+                            transition: .3s;
+                            user-select: none;
+                            &:hover {
+                                color: red;
+                            }
+                        }
+                        .pro-img {
+                            margin-right: 25px;
+                            img {
+                                width: 120px;
+                                border-radius: 1rem;
+                            }
+                            .sale {
+                                display: none;
+                            }
+                        }
+                        .pro-info {
+                            width: 120px;    
+                            h4 {
+                                margin-bottom: 15px;
+                                font-size: 15px;
+                                transition: .3s;
+                                cursor: pointer;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                            .price {
+                                font-weight: bold;
+                            }
+                            .desc {
+                                text-decoration: line-through;
+                                margin-right: 5px;
+                                color: gray;
+                                font-size: 13px;
+                            }
+                            .add {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

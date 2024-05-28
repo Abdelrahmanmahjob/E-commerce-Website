@@ -1,0 +1,1 @@
+This folder for elements where you must use it or call it in every page.

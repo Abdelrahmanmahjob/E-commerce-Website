@@ -1,0 +1,161 @@
+@use "./sass/helpers/mixins" as *;
+
+@use "../helpers/colors" as *;
+
+@use "../helpers/fonts" as *;
+
+@use '../layouts/global-rules' as *;
+
+.shoping {
+    margin-top: 50px;
+    // @include flex-b;
+    display: grid;
+    grid-template-areas: 
+    'one two two';
+    gap: 40px;
+    @include Mobile {
+        gap: 0;
+    }
+    .search-box {
+        width: 250px;
+        grid-area: one;
+        @include Mobile {
+            display: none;
+        }
+        .search-input {
+            position: relative;
+            input {
+                width: 100%;
+                padding: 12px 20px;
+                border-radius: 2rem;
+                border: none;
+                background-image: linear-gradient(to right, hsl($clr-gray), hsl($clr-white));
+                transition: .3s;
+                &:focus {
+                    outline: 1px solid gray;
+                }
+            }
+            i {
+                color: hsl($clr-white);
+                background-color: hsl($clr-red);
+                @include circle(30px);
+                @include flex-c;
+                position: absolute;
+                right: 5px;
+                top: 4px;
+                font-size: 15px;
+                box-shadow: 0px 0px 15px 0px hsl($clr-red);
+            }
+        }
+        
+        .products-categories {
+            margin-top: 35px;
+            @include flex-b;
+            .show-cate {
+                font-weight: bold;
+                rotate: 0deg;
+                cursor: pointer;
+                // width: 20%;
+                transition: .5s;
+                &.rotate {
+                    rotate: 180deg;
+                }
+            }
+        }
+        .categories {
+            margin-top: 20px;
+            margin-left: 25px;
+            li {
+                margin-block: 10px;
+                color: gray;
+                opacity: 0;
+                &.opacity {
+                    opacity: 1;
+                }
+                &:nth-child(1) {transition: .2s;}
+                &:nth-child(2) {transition: .4s;}
+                &:nth-child(3) {transition: .6s;}
+                &:nth-child(4) {transition: .8s;}
+                &:nth-child(5) {transition: 1s;}
+                &:nth-child(6) {transition: 1.2s;}
+                &:nth-child(7) {transition: 1.4s;}
+            }
+        }
+    }
+    .shop {
+        grid-area: two;
+        .best-seller {
+            // margin-block: 70px;
+            .seller-box {
+                margin-block: 35px;
+                display: grid;
+                grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+                gap: 30px;
+                @include Mobile {
+                    gap: 50px;
+                }
+                .best-product {
+                    cursor: pointer;
+                    &:hover {
+                        h4 {
+                            color: hsl($clr-red);
+                        }
+                        .price {
+                            opacity: 0;
+                            display: none;
+                        }
+                        .add {
+                            opacity: 1;
+                            top: 5px;
+                        }
+                    }
+                    .pro-img {
+                        position: relative;
+                        img {
+                            border-radius: 2rem;
+                        }
+                        .sale {
+                            position: absolute;
+                            left: 15px;
+                            top: 15px;
+                            color: hsl($clr-white);
+                            background-color: hsl($clr-red);
+                            font-weight: bold;
+                            @include circle(45px);
+                            @include flex-c;
+                        }
+                    }
+                    h4 {
+                        margin: 20px 0 10px;
+                        transition: .3s;
+                    }
+                    .price {
+                        font-style: italic;
+                        transition: 1.3s;
+                    }
+                    .desc {
+                        text-decoration: line-through;
+                        margin-right: 5px;
+                        color: gray;
+                    }
+                    .add {
+                        position: relative;
+                        opacity: 0;
+                        width: fit-content;
+                        padding: 7px 12px;
+                        border-radius: 30px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        font-size: 13px;
+                        transition: 1.3s;
+                        user-select: none;
+                        &:hover {
+                            background-color: hsl($clr-black);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

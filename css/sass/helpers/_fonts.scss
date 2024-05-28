@@ -1,0 +1,45 @@
+/* font-size */
+/* --fs-bf-194: 12.125rem; */
+$fs-bf-194: 12.3vw;
+$fs-bf-109: 6.8125rem;
+$fs-bf-65: 4.065rem;
+$fs-bf-80: 5rem;
+$fs-bf-50: 3.125rem;
+$fs-bf-45: 2.8125rem;
+$fs-bf-30: 1.875rem;
+$fs-bf-20: 1.25rem;
+$fs-bf-16: 1rem;
+$fs-bf-15: 0.9375rem;
+
+// font size classes
+.fs-900 {font-size: $fs-bf-194;}
+.fs-800 {font-size: $fs-bf-109;}
+.fs-700 {font-size: $fs-bf-80;}
+.fs-600 {font-size: $fs-bf-65;}
+.fs-500 {font-size: $fs-bf-50;}
+.fs-400 {font-size: $fs-bf-45;}
+.fs-300 {font-size: $fs-bf-30;}
+.fs-200 {font-size: $fs-bf-20;}
+.fs-100 {font-size: $fs-bf-16;}
+.fs-50 {font-size: $fs-bf-15;}
+
+// font bold
+.bold-100{font-weight: 100;}
+.bold-200{font-weight: 200;}
+.bold-300{font-weight: 300;}
+.bold-400{font-weight: 400;}
+.bold-500{font-weight: 500;}
+.bold-600{font-weight: 600;}
+.bold-700{font-weight: 700;}
+.bold-800{font-weight: 800;}
+.bold-900{font-weight: 900;}
+.bold-bold{font-weight: bold;}
+.bold-bolder{font-weight: bolder;}
+
+/* font family */
+$font-montserrat: "Montserrat", sans-serif;
+$font-poppins: "Poppins", sans-serif;
+
+// font family classes
+.fs-poppins{font-family: 'Poppins', sans-serif;} 
+.fs-montserrat{font-family: 'Montserrat', sans-serif;}

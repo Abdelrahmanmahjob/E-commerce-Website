@@ -1,0 +1,40 @@
+@use "../helpers/mixins" as *;
+
+.recent-news {
+    margin-block: 50px;
+    .news-box {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
+        gap: 30px;
+        .new {
+            @include Mobile {
+                margin-block: 12px;
+            }
+            @include Tablet {
+                margin: 10px auto;
+                text-align: center;
+            }
+            img {
+                width: 447.04px;
+                height: 220px;
+                object-fit: cover;
+                border-radius: 2rem;
+                cursor: pointer;
+                transition: .3s;
+                &:hover {
+                    box-shadow: 5px 5px 15px 0px gray;
+                }
+            }
+            .new-info {
+                margin-top: 20px;
+                h3 {
+                    margin-block: 15px;
+                }
+                p {
+                    color: gray;
+                }
+            }
+        }
+    }
+}

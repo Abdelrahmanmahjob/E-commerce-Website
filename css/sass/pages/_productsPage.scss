@@ -1,0 +1,255 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/colors" as *;
+
+.product-section {
+    margin-block: 15px;
+    .product-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(380px,1fr));
+        gap: 50px;
+        @include Laptop {
+            gap: 80px;
+        }
+        .pro-img {
+            overflow: hidden;
+            img {
+                border-radius: 2rem;
+                transition: .3s;
+                &:hover {
+                    scale: 1.2;
+                }
+            }
+        }
+        .pro-content {
+            .rate {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                margin-bottom: 15px;
+                .stars {
+                    margin-right: 15px;
+                    color: orange;
+                }
+            }
+            .lor {
+                width: 85%;
+                margin-block: 30px;
+                line-height: 1.5;
+                color: gray;
+                font-size: 14px;
+            }
+            .obtain {
+                margin-block: 50px;
+                input {
+                    width: 62px;
+                    margin-right: 10px;
+                    border-radius: 1rem;
+                    font-size: 17px;
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
+    .product-info {
+        margin-block: 70px;
+        .filter-box {
+            border-top: 1px solid gray;
+            padding-top: 20px;
+            .filter {
+                text-align: center;
+                span {
+                    padding-top: 19px;
+                    margin-inline: 40px;
+                    opacity: .5;
+                    cursor: pointer;
+                    transition: .3s;
+                    &.active , &:hover{
+                        opacity: 1;
+                        border-top: 3px solid red;
+                        font-weight: bold;
+                    }
+                }
+            }
+            .dis-content {
+                padding: 4rem 8rem;
+                @include Mobile {
+                    padding: 4rem 0;
+                }
+                p {
+                    margin-top: 20px;
+                }
+            }
+            .review-content {
+                padding: 4rem 8rem;
+                display: none;
+                @include Mobile {
+                    padding: 4rem 0;
+                }
+                .comment-box {
+                    margin-block: 3rem;
+                    padding: 3rem;
+                    border-radius: 1rem;
+                    @include flex-b;
+                    background-color: #eee;
+                    @include Mobile {
+                        padding: 1rem;
+                    }
+                    .comm {
+                        @include flex-c;
+                        img {
+                            @include circle(55px);
+                            margin-right: 15px;
+                            @include Mobile {
+                                width: 40px;
+                                height: 40px;
+                            }
+                        }
+                        p {
+                            margin-block: 8px;
+                        }
+                    }
+                    .star {
+                        color: orange;
+                        @include Mobile { 
+                            font-size: 12px;
+                        }
+                    }
+                }
+                .add-review {
+                    p {
+                        margin: 8px 0px 15px;
+                    }
+                    .your-rate {
+                        display: flex;
+                        align-items: center;
+                        margin-top: 25px;
+                        .star {
+                            margin-left: 15px;
+                        }
+                    }
+                    .review-form {
+                        margin-top: 25px;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill,minmax(380px,1fr));
+                        gap: 50px;
+                        @include Tablet {
+                            gap: 30px;
+                        }
+                        @include Mobile {
+                            gap: 30px;
+                        }
+                        input {
+                            display: block;
+                            margin-top: 15px;
+                            width: 100%;
+                            padding: 13px;
+                            border-radius: 2rem;
+                            background-color: #eee;
+                            border: none;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+                    .re-msg {
+                        margin-top: 25px;
+                        textarea {
+                            display: block;
+                            margin-top: 15px;
+                            width: 100%;
+                            height: 250px;
+                            padding: 22px;
+                            border-radius: 2rem;
+                            background-color: #eee;
+                            border: none;
+                            resize: none;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                        .btn-shape {
+                            display: block;
+                            margin: 25px auto 0;
+                            width: fit-content;
+                        }
+                    }
+                }
+            }
+            .related-products {
+                h2 {
+                    text-align: center;
+                }
+                .seller-box {
+                    margin-top: 60px;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+                    gap: 30px;
+                    @include Mobile {
+                        gap: 50px;
+                    }
+                    .best-product {
+                        cursor: pointer;
+                        &:hover {
+                            h4 {
+                                color: hsl($clr-red);
+                            }
+                            .price {
+                                opacity: 0;
+                                display: none;
+                            }
+                            .add {
+                                opacity: 1;
+                                top: 5px;
+                            }
+                        }
+                        .pro-img {
+                            position: relative;
+                            img {
+                                border-radius: 2rem;
+                            }
+                            .sale {
+                                position: absolute;
+                                left: 15px;
+                                top: 15px;
+                                color: hsl($clr-white);
+                                background-color: hsl($clr-red);
+                                font-weight: bold;
+                                @include circle(45px);
+                                @include flex-c;
+                            }
+                        }
+                        h4 {
+                            margin: 20px 0 10px;
+                            transition: .3s;
+                            color: rgb(1, 208, 208);
+                        }
+                        .price {
+                            font-style: italic;
+                            transition: 1.3s;
+                        }
+                        .desc {
+                            text-decoration: line-through;
+                            margin-right: 5px;
+                            color: gray;
+                        }
+                        .add {
+                            position: relative;
+                            opacity: 0;
+                            width: fit-content;
+                            padding: 7px 12px;
+                            border-radius: 30px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            font-size: 13px;
+                            transition: 1.3s;
+                            user-select: none;
+                            &:hover {
+                                background-color: hsl($clr-black);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

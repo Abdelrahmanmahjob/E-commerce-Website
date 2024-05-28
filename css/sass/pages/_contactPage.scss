@@ -1,0 +1,82 @@
+@use "../helpers/colors" as *;
+@use "../helpers/mixins" as *;
+
+.contact {
+    margin-block: 50px;
+    .contact-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(400px,1fr));
+        gap: 50px;
+        position: relative;
+        .contact-content {
+            h2 {
+                margin-top: 10px;
+            }
+            p {
+                margin-block: 25px;
+                line-height: 1.5;
+            }
+            .form {
+                input, textarea {
+                    display: block;
+                    width: 90%;
+                    background-image: linear-gradient(to right, #eee,#eee,white);
+                    padding: 15px 25px;
+                    margin-block: 20px;
+                    outline: none;
+                    border: none;
+                }
+                input {border-radius: 1.5rem;}
+                textarea { 
+                    border-radius: 1.5rem 1.5rem 0 0;
+                    resize: none;
+                    height: 220px;
+                }
+            }
+            .btn-shape {
+                display: block;
+                width: fit-content;
+                margin: 25px auto 0;
+            }
+        }
+        .contact-msg {
+            @include Laptop {
+                position: relative;
+                top: 40%;
+            }
+            .msg {
+                background-color: rgba(red, 15%);
+                border-left: 4px solid gray;
+                padding: 15px;
+                box-shadow: 5px 5px 20px -5px gray;
+                p {
+                    margin-top: 8px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+    .contact-serv {
+        margin-block: 75px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
+        gap: 30px;
+        place-items: center;
+        @include Mobile {
+            margin-top: 45px
+        }
+        .serv {
+            @include flex-c;
+            @include Mobile {
+                display: block;
+                text-align: center;
+                img {
+                    margin-bottom: 15px;
+                }
+            }
+            .info {
+                margin-left: 25px;
+            }
+        }
+    }
+}
